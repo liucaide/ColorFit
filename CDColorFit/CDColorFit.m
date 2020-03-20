@@ -214,9 +214,8 @@
 }
 
 + (instancetype)colorWithLight:(UIColor*)light dark:(UIColor*)dark {
-    
     if (@available(iOS 13.0, *)) {
-        return [[UIColor alloc] initWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
+        return [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
             if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
                 return dark;
             }
