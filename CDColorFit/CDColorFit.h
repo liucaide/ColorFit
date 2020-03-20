@@ -13,18 +13,6 @@
 #import <objc/runtime.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UILabel (CDColorFit)
-@end
-@interface UIButton (CDColorFit)
-@end
-@interface UITextField (CDColorFit)
-@end
-@interface UITextView (CDColorFit)
-@end
-@interface UIView (CDColorFit)
-@end
-@interface CALayer (CDColorFit)
-@end
 @interface UIColor (CDColorFit)
 + (instancetype)colorWithLight:(UIColor*)light;
 + (instancetype)colorWithLight:(UIColor*)light dark:(UIColor*)dark;
@@ -40,10 +28,5 @@ static inline void fit_swizzling(Class cla, SEL original, SEL swizzled) {
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }
 }
-
-
-
-
-
 
 NS_ASSUME_NONNULL_END
