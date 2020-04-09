@@ -160,7 +160,19 @@
 
 -(instancetype)swizzling_initViewWithFrame:(CGRect)rect{
     UIView* __self = [self swizzling_initViewWithFrame:rect];
-    [__self setBackgroundColor:self.backgroundColor];
+    /**
+       设置了
+       self.tableView.estimatedRowHeight = 0;
+       self.tableView.estimatedSectionHeaderHeight = 0;
+       self.tableView.estimatedSectionFooterHeight = 0;
+       报错
+       Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason:     'UITableViewHeaderFooterView's contentView must remain a direct subview of it. Unexpected superview of the contentView: (null)'
+    */
+    @try {
+        [__self setBackgroundColor:self.backgroundColor];
+    } @catch (NSException *exception) {
+    } @finally {
+    }
     return __self;
 }
 
