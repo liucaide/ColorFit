@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-func fit_swizzling(_ cls:AnyClass?, original:Selector, swizzled:Selector) {
+private func fit_swizzling(_ cls:AnyClass?, original:Selector, swizzled:Selector) {
     guard let originalMethod = class_getInstanceMethod(cls, original),
         let swizzledMethod = class_getInstanceMethod(cls, swizzled) else {
         return
@@ -32,7 +32,7 @@ extension UILabel {
         let color = self.textColor
         self.textColor = color
     }
-    @objc var swizzling_textColor:UIColor {
+    @objc private var swizzling_textColor:UIColor {
         set{
             let color = newValue.fit_textColor
             self.swizzling_textColor = color
@@ -54,7 +54,7 @@ extension UIView {
         let color = self.backgroundColor
         self.backgroundColor = color
     }
-    @objc var swizzling_backgroundColor:UIColor? {
+    @objc private var swizzling_backgroundColor:UIColor? {
         set{
             let color = newValue?.fit_backgroundColor ?? backgroundColor
             self.swizzling_backgroundColor = color
