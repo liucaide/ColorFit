@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		474DD5B1242349F7007E4CEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474DD5B0242349F6007E4CEA /* SceneDelegate.swift */; };
-		478F9A3224245965006C93DD /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478F9A3124245965006C93DD /* UIColor+.swift */; };
-		478F9A3C24246616006C93DD /* CDColorFit.m in Sources */ = {isa = PBXBuildFile; fileRef = 478F9A3A24246616006C93DD /* CDColorFit.m */; };
+		47AD57DD24498BB7006873EB /* CDColorFitSwift+Swizzling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD57DA24498BB7006873EB /* CDColorFitSwift+Swizzling.swift */; };
+		47AD57DE24498BB7006873EB /* CDColorFitSwiftManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD57DB24498BB7006873EB /* CDColorFitSwiftManage.swift */; };
+		47AD57DF24498BB7006873EB /* CDColorFitSwift.m in Sources */ = {isa = PBXBuildFile; fileRef = 47AD57DC24498BB7006873EB /* CDColorFitSwift.m */; };
 		47C161082420D40000E7EB23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C161072420D40000E7EB23 /* AppDelegate.swift */; };
 		47C1610C2420D40000E7EB23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C1610B2420D40000E7EB23 /* ViewController.swift */; };
 		47C1610F2420D40000E7EB23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47C1610D2420D40000E7EB23 /* Main.storyboard */; };
@@ -20,10 +21,9 @@
 /* Begin PBXFileReference section */
 		4708F0B32422119C00DAF29A /* Color-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Color-Bridging-Header.h"; sourceTree = "<group>"; };
 		474DD5B0242349F6007E4CEA /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		478F9A3124245965006C93DD /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		478F9A3924246616006C93DD /* CDColorFitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDColorFitManager.h; sourceTree = "<group>"; };
-		478F9A3A24246616006C93DD /* CDColorFit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDColorFit.m; sourceTree = "<group>"; };
-		478F9A3B24246616006C93DD /* CDColorFit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDColorFit.h; sourceTree = "<group>"; };
+		47AD57DA24498BB7006873EB /* CDColorFitSwift+Swizzling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDColorFitSwift+Swizzling.swift"; sourceTree = "<group>"; };
+		47AD57DB24498BB7006873EB /* CDColorFitSwiftManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDColorFitSwiftManage.swift; sourceTree = "<group>"; };
+		47AD57DC24498BB7006873EB /* CDColorFitSwift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDColorFitSwift.m; sourceTree = "<group>"; };
 		47C161042420D40000E7EB23 /* Color.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Color.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47C161072420D40000E7EB23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47C1610B2420D40000E7EB23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,20 +44,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		478F9A3824246616006C93DD /* CDColorFit */ = {
+		47AD57D924498BB7006873EB /* CDColorFitSwift */ = {
 			isa = PBXGroup;
 			children = (
-				478F9A3924246616006C93DD /* CDColorFitManager.h */,
-				478F9A3A24246616006C93DD /* CDColorFit.m */,
-				478F9A3B24246616006C93DD /* CDColorFit.h */,
+				47AD57DA24498BB7006873EB /* CDColorFitSwift+Swizzling.swift */,
+				47AD57DB24498BB7006873EB /* CDColorFitSwiftManage.swift */,
+				47AD57DC24498BB7006873EB /* CDColorFitSwift.m */,
 			);
-			path = CDColorFit;
+			path = CDColorFitSwift;
 			sourceTree = "<group>";
 		};
 		47C160FB2420D40000E7EB23 = {
 			isa = PBXGroup;
 			children = (
-				478F9A3824246616006C93DD /* CDColorFit */,
+				47AD57D924498BB7006873EB /* CDColorFitSwift */,
 				47C161062420D40000E7EB23 /* Color */,
 				47C161052420D40000E7EB23 /* Products */,
 			);
@@ -76,7 +76,6 @@
 			children = (
 				47C161072420D40000E7EB23 /* AppDelegate.swift */,
 				474DD5B0242349F6007E4CEA /* SceneDelegate.swift */,
-				478F9A3124245965006C93DD /* UIColor+.swift */,
 				47C1610B2420D40000E7EB23 /* ViewController.swift */,
 				47C1610D2420D40000E7EB23 /* Main.storyboard */,
 				47C161102420D40300E7EB23 /* Assets.xcassets */,
@@ -159,11 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AD57DF24498BB7006873EB /* CDColorFitSwift.m in Sources */,
+				47AD57DD24498BB7006873EB /* CDColorFitSwift+Swizzling.swift in Sources */,
+				47AD57DE24498BB7006873EB /* CDColorFitSwiftManage.swift in Sources */,
 				474DD5B1242349F7007E4CEA /* SceneDelegate.swift in Sources */,
 				47C1610C2420D40000E7EB23 /* ViewController.swift in Sources */,
-				478F9A3C24246616006C93DD /* CDColorFit.m in Sources */,
 				47C161082420D40000E7EB23 /* AppDelegate.swift in Sources */,
-				478F9A3224245965006C93DD /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

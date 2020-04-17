@@ -23,10 +23,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //self.view.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1)
         
-        lab_title.backgroundColor = .clear//UIColor(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1)
-        print(lab_title.textColor.rgba)
+        //lab_title.backgroundColor = .clear//UIColor(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1)
+        //print(lab_title.textColor.rgba)
+        
+        let lab = UILabel(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+        lab.text = "UILabel"
+        //lab.textColor = UIColor(red: 82.0/255, green: 92.0/255, blue: 114.0/255, alpha: 1)
+        self.view.addSubview(lab)
+        
+        
     }
     
     @IBAction func buttonClick(_ sender: UIButton ) {

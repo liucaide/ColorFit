@@ -15,7 +15,6 @@
 +(void)load{
     Class class = [self class];
     fit_swizzling(class, @selector(init), @selector(swizzling_init));
-    fit_swizzling(class, @selector(initWithFrame:), @selector(swizzling_initWithFrame:));
     fit_swizzling(class, @selector(awakeFromNib), @selector(swizzling_awakeFromNib));
     fit_swizzling(class, @selector(setTextColor:), @selector(swizzling_setTextColor:));
 }
@@ -27,11 +26,6 @@
     return __self;
 }
 
--(instancetype)swizzling_initWithFrame:(CGRect)rect{
-    UILabel* __self = [self swizzling_initWithFrame:rect];
-    [__self setTextColor:self.textColor];
-    return __self;
-}
 
 -(void)swizzling_awakeFromNib{
     [self swizzling_awakeFromNib];
@@ -49,7 +43,6 @@
 +(void)load{
     Class class = [self class];
     fit_swizzling(class, @selector(init), @selector(swizzling_init));
-    fit_swizzling(class, @selector(initWithFrame:), @selector(swizzling_initWithFrame:));
     fit_swizzling(class, @selector(awakeFromNib), @selector(swizzling_awakeFromNib));
     fit_swizzling(class, @selector(setTitleColor:forState:), @selector(swizzling_setTitleColor:forState:));
 }
@@ -59,12 +52,6 @@
     [__self setTitleColor:self.titleLabel.textColor forState:self.state];
     return __self;
 }
--(instancetype)swizzling_initWithFrame:(CGRect)rect{
-    UIButton* __self = [self swizzling_initWithFrame:rect];
-    [__self setTitleColor:self.titleLabel.textColor forState:self.state];
-    return __self;
-}
-
 -(void)swizzling_awakeFromNib{
     [self swizzling_awakeFromNib];
     [self setTitleColor:self.titleLabel.textColor forState:self.state];
@@ -80,7 +67,6 @@
 +(void)load{
     Class class = [self class];
     fit_swizzling(class, @selector(init), @selector(swizzling_init));
-    fit_swizzling(class, @selector(initWithFrame:), @selector(swizzling_initWithFrame:));
     fit_swizzling(class, @selector(awakeFromNib), @selector(swizzling_awakeFromNib));
     fit_swizzling(class, @selector(setTextColor:), @selector(swizzling_setTextColor:));
 }
@@ -88,12 +74,6 @@
 - (instancetype)swizzling_init
 {
     UITextField* __self = [self swizzling_init];
-    [__self setTextColor:self.textColor];
-    return __self;
-}
-
--(instancetype)swizzling_initWithFrame:(CGRect)rect{
-    UITextField* __self = [self swizzling_initWithFrame:rect];
     [__self setTextColor:self.textColor];
     return __self;
 }
@@ -113,7 +93,6 @@
 +(void)load{
     Class class = [self class];
     fit_swizzling(class, @selector(init), @selector(swizzling_init));
-    fit_swizzling(class, @selector(initWithFrame:), @selector(swizzling_initWithFrame:));
     fit_swizzling(class, @selector(awakeFromNib), @selector(swizzling_awakeFromNib));
     fit_swizzling(class, @selector(setTextColor:), @selector(swizzling_setTextColor:));
 }
@@ -121,12 +100,6 @@
 - (instancetype)swizzling_init
 {
     UITextView* __self = [self swizzling_init];
-    [__self setTextColor:self.textColor];
-    return __self;
-}
-
--(instancetype)swizzling_initWithFrame:(CGRect)rect{
-    UITextView* __self = [self swizzling_initWithFrame:rect];
     [__self setTextColor:self.textColor];
     return __self;
 }
@@ -142,11 +115,38 @@
 }
 @end
 
+@implementation UITableViewCell (CDColorFit)
++(void)load{
+    Class class = [self class];
+    fit_swizzling(class, @selector(initWithStyle:reuseIdentifier:), @selector(swizzling_initWithStyle:reuseIdentifier:));
+    fit_swizzling(class, @selector(awakeFromNib), @selector(swizzling_awakeFromNib));
+    fit_swizzling(class, @selector(setBackgroundColor:), @selector(swizzling_setBackgroundColor:));
+    
+}
+- (instancetype)swizzling_initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    id __self = [self swizzling_initWithStyle:style reuseIdentifier:reuseIdentifier];
+    [__self setBackgroundColor:[UIColor whiteColor]];
+    return __self;
+}
+
+-(void)swizzling_awakeFromNib{
+    [self swizzling_awakeFromNib];
+    [self setBackgroundColor:[UIColor whiteColor]];
+}
+
+
+- (void)swizzling_setBackgroundColor:(UIColor *)backgroundColor {
+    backgroundColor = fit_backgroundColor(backgroundColor);
+    [self swizzling_setBackgroundColor:backgroundColor];
+    [self.contentView setBackgroundColor:backgroundColor];
+}
+@end
+
+/* UIView 覆盖太多，不建议，而应该特定进行*/
 @implementation UIView (CDColorFit)
 +(void)load{
     Class class = [self class];
     fit_swizzling(class, @selector(init), @selector(swizzling_initView));
-    fit_swizzling(class, @selector(initWithFrame:), @selector(swizzling_initViewWithFrame:));
     fit_swizzling(class, @selector(awakeFromNib), @selector(swizzling_awakeViewFromNib));
     fit_swizzling(class, @selector(setBackgroundColor:), @selector(swizzling_setBackgroundColor:));
 }
@@ -157,13 +157,6 @@
     [__self setBackgroundColor:self.backgroundColor];
     return __self;
 }
-
--(instancetype)swizzling_initViewWithFrame:(CGRect)rect{
-    UIView* __self = [self swizzling_initViewWithFrame:rect];
-    [__self setBackgroundColor:self.backgroundColor];
-    return __self;
-}
-
 
 -(void)swizzling_awakeViewFromNib{
     [self swizzling_awakeViewFromNib];
@@ -182,7 +175,6 @@
 +(void)load{
     Class class = [self class];
     fit_swizzling(class, @selector(init), @selector(swizzling_init));
-    fit_swizzling(class, @selector(initWithLayer:), @selector(swizzling_initWithLayer:));
     
     fit_swizzling(class, @selector(setBorderColor:), @selector(swizzling_setBorderColor:));
 }

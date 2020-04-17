@@ -29,7 +29,7 @@ static inline UIColor * fit_color(UIColor *color){
     if (!isGet) { return color; }
     if (r == 0 && g == 0 && b == 0) {
         //black
-        return [[UIColor colorWithLight:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:a] dark:UIColor.whiteColor] colorWithAlphaComponent:a];
+        return [[UIColor colorWithLight:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:a] dark:UIColor.redColor] colorWithAlphaComponent:a];
     }
     if (r == 0 && g == 128.0/255.0 && b == 0) {
         //green
@@ -52,6 +52,9 @@ static inline UIColor * fit_color(UIColor *color){
     }
     if (r == 1 && g == 1 && b == 1) {
         return [[UIColor colorWithLight:UIColor.whiteColor dark:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:a]] colorWithAlphaComponent:a];
+    }
+    if ([[NSString stringWithFormat:@"%.2f, %.2f, %.2f", r, g, b]  isEqual: @"0.32, 0.36, 0.45"]) {
+        return [[UIColor colorWithLight:color dark:[UIColor colorWithRed:0 green:0 blue:1 alpha:a]] colorWithAlphaComponent:a];
     }
     return color;
 }
@@ -87,7 +90,7 @@ static inline UIColor * fit_backgroundColor(UIColor *color){
     if (r == 1 && g == 1 && b == 1) {
         return [[UIColor colorWithLight:UIColor.whiteColor dark:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:a]] colorWithAlphaComponent:a];
     }
-    return color;
+    return [UIColor colorWithLight:color dark:UIColor.blackColor];
 }
 
 #endif /* CDColorFitManager_h */
